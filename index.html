@@ -15,23 +15,21 @@
     <!-- ===== HEADER / PROFILE ===== -->
     <header class="profile">
       <div class="profile-photo">
-        <img src="photo.jpg" alt="Xiaohan Wang" onerror="this.style.display='none'" />
+        <img src="photo.jpeg" alt="Xiaohan Wang" onerror="this.style.display='none'" />
         <div class="photo-placeholder" id="photo-placeholder">XW</div>
       </div>
       <div class="profile-info">
         <h1>Xiaohan Wang <span class="name-cn">王霄汉</span></h1>
-        <p class="title">PhD Researcher · [Your Institution]</p>
+        <p class="title">LLM Algorithm Researcher · Meituan (美团) · Beidou Program</p>
         <p class="bio">
-          I am a researcher broadly interested in <strong>[Your Research Area]</strong>.
-          My work focuses on [brief description of research themes].
-          I am currently affiliated with the [Lab/Group Name] at [Institution].
+          I am a researcher mainly interested in <strong>LLM post-training and decision-making with neural networks</strong>.
+          My work focuses on reinforcement learning with verifiable rewards (RLVR), agentic tool-use,
+          reasoning, and instruction following. Previously, I worked on deep reinforcement learning
+          for cloud resource scheduling during my PhD.
         </p>
         <div class="contact-links">
-          <a href="mailto:your@email.com" class="link-chip">✉ Email</a>
-          <a href="https://github.com/sampleargmax" class="link-chip" target="_blank">GitHub</a>
-          <a href="https://scholar.google.com" class="link-chip" target="_blank">Google Scholar</a>
-          <a href="https://twitter.com/" class="link-chip" target="_blank">Twitter / X</a>
-          <a href="cv.pdf" class="link-chip" target="_blank">CV (PDF)</a>
+          <a href="https://scholar.google.com/citations?user=H0kocJUAAAAJ&hl=en" class="link-chip" target="_blank">Google Scholar</a>
+          <a href="https://www.linkedin.com/in/wangxiaohan17/" class="link-chip" target="_blank">LinkedIn</a>
         </div>
       </div>
     </header>
@@ -42,9 +40,12 @@
       <section id="news">
         <h2>News</h2>
         <ul class="news-list">
-          <li><span class="date">May 2026</span> One paper accepted at <em>[Conference Name]</em>.</li>
-          <li><span class="date">Jan 2026</span> Presented at <em>[Workshop / Conference]</em>.</li>
-          <li><span class="date">Sep 2025</span> Started as a researcher at <em>[Institution / Company]</em>.</li>
+          <li><span class="date">May 2026</span> Two papers accepted at <em>ICML 2026</em>: ResRL and Contextual Rollout Bandits.</li>
+          <li><span class="date">May 2026</span> One paper accepted at <em>ACL 2026</em>: AutoSearch.</li>
+          <li><span class="date">May 2026</span> One paper accepted at <em>KDD 2026</em>: CDRRM (Corresponding Author).</li>
+          <li><span class="date">Jan 2026</span> Three papers accepted at <em>ICLR 2026</em>: ResT, LogiConBench, MAD-Logic; one workshop paper MTIR-SQL.</li>
+          <li><span class="date">Sep 2024</span> Joined Meituan as an LLM Algorithm Researcher under the <em>Beidou Program</em>.</li>
+          <li><span class="date">2023 – 2024</span> Joint PhD training at <em>KTH Royal Institute of Technology</em>, Stockholm.</li>
         </ul>
       </section>
 
@@ -52,16 +53,20 @@
       <section id="research">
         <h2>Research Interests</h2>
         <div class="interest-tags">
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Reinforcement Learning</span>
-          <span class="tag">Natural Language Processing</span>
-          <span class="tag">Large Language Models</span>
-          <span class="tag">Recommendation Systems</span>
-          <!-- Replace / add tags to match your actual interests -->
+          <span class="tag">LLM Post-Training</span>
+          <span class="tag">Reinforcement Learning (RLVR)</span>
+          <span class="tag">Agent &amp; Tool Use</span>
+          <span class="tag">Reasoning</span>
+          <span class="tag">Instruction Following</span>
+          <span class="tag">Deep Reinforcement Learning</span>
+          <span class="tag">Cloud Resource Scheduling</span>
         </div>
         <p class="research-desc">
-          My research aims to [one-paragraph description of overarching research goal and motivation].
-          I am particularly interested in [specific problem or application area].
+          During my PhD I focused on applying deep reinforcement learning to cloud resource scheduling,
+          modeling decision problems via neural-network generalization to achieve better solution quality
+          and faster response times — covering MDP modeling, Uplift modeling, and offline/online RL.
+          Since joining industry, I have shifted towards LLM post-training: studying RLVR algorithms and
+          their applications to agentic tasks, tool calling, multi-step reasoning, and instruction following.
         </p>
       </section>
 
@@ -72,45 +77,211 @@
 
         <ol class="pub-list">
 
+          <!-- KDD 2026 -->
           <li class="pub-item">
             <div class="pub-title">
-              <a href="#" target="_blank">Your Paper Title Here</a>
+              <a href="https://openreview.net/forum?id=OTBzVLBJPb#discussion" target="_blank">
+                CDRRM: Contrast-Driven Rubric Generation for Reliable and Interpretable Reward Modeling
+              </a>
             </div>
             <div class="pub-authors">
-              <strong>Xiaohan Wang</strong>, Co-Author One, Co-Author Two
+              …, <strong>Xiaohan Wang†</strong>
             </div>
             <div class="pub-venue">
-              <em>Conference / Journal Name (CONF'26)</em>, 2026
+              <em>KDD 2026</em> · Corresponding Author
             </div>
             <div class="pub-links">
-              <a href="#" class="pub-link">Paper</a>
-              <a href="#" class="pub-link">Code</a>
-              <a href="#" class="pub-link">Slides</a>
+              <a href="https://openreview.net/forum?id=OTBzVLBJPb#discussion" class="pub-link" target="_blank">Paper</a>
             </div>
           </li>
 
+          <!-- ICML 2026 — ResRL -->
           <li class="pub-item">
             <div class="pub-title">
-              <a href="#" target="_blank">Another Paper Title</a>
+              <a href="https://arxiv.org/abs/2605.00380" target="_blank">
+                ResRL: Boosting LLM Reasoning via Negative Sample Projection Residual Reinforcement Learning
+              </a>
             </div>
             <div class="pub-authors">
-              Co-Author One, <strong>Xiaohan Wang</strong>, Co-Author Two
+              …, <strong>Xiaohan Wang*†</strong>
             </div>
             <div class="pub-venue">
-              <em>Conference / Journal Name (CONF'25)</em>, 2025
+              <em>ICML 2026</em> · Co-First Author &amp; Corresponding Author
             </div>
             <div class="pub-links">
-              <a href="#" class="pub-link">Paper</a>
-              <a href="#" class="pub-link">Code</a>
+              <a href="https://arxiv.org/abs/2605.00380" class="pub-link" target="_blank">arXiv</a>
             </div>
           </li>
 
-          <!-- Add more papers following the same pattern -->
+          <!-- ICML 2026 — Contextual Rollout Bandits -->
+          <li class="pub-item">
+            <div class="pub-title">
+              <a href="https://arxiv.org/abs/2602.08499" target="_blank">
+                Contextual Rollout Bandits for Reinforcement Learning with Verifiable Rewards
+              </a>
+            </div>
+            <div class="pub-authors">
+              …, <strong>Xiaohan Wang</strong>, …
+            </div>
+            <div class="pub-venue">
+              <em>ICML 2026</em>
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2602.08499" class="pub-link" target="_blank">arXiv</a>
+            </div>
+          </li>
+
+          <!-- ICML 2026 — SSL4RL -->
+          <li class="pub-item">
+            <div class="pub-title">
+              <a href="https://arxiv.org/abs/2510.16416" target="_blank">
+                SSL4RL: Revisiting Self-supervised Learning as Intrinsic Reward for Visual-Language Reasoning
+              </a>
+            </div>
+            <div class="pub-authors">
+              …, <strong>Xiaohan Wang</strong>, …
+            </div>
+            <div class="pub-venue">
+              <em>ICML 2026</em>
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2510.16416" class="pub-link" target="_blank">arXiv</a>
+            </div>
+          </li>
+
+          <!-- ICML 2026 — Token-Level Personalization -->
+          <li class="pub-item">
+            <div class="pub-title">
+              <a href="https://arxiv.org/abs/2603.06595" target="_blank">
+                Rethinking Personalization in Large Language Models at the Token Level
+              </a>
+            </div>
+            <div class="pub-authors">
+              …, <strong>Xiaohan Wang</strong>, …
+            </div>
+            <div class="pub-venue">
+              <em>ICML 2026</em>
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2603.06595" class="pub-link" target="_blank">arXiv</a>
+            </div>
+          </li>
+
+          <!-- ICML 2026 — GRASP -->
+          <li class="pub-item">
+            <div class="pub-title">
+              GRASP: Graph Reasoning via Agentic Solving and Probing of LLMs
+            </div>
+            <div class="pub-authors">
+              …, <strong>Xiaohan Wang</strong>, …
+            </div>
+            <div class="pub-venue">
+              <em>ICML 2026</em>
+            </div>
+          </li>
+
+          <!-- ACL 2026 — AutoSearch -->
+          <li class="pub-item">
+            <div class="pub-title">
+              <a href="https://arxiv.org/abs/2604.17337" target="_blank">
+                AutoSearch: Adaptive Search Depth for Efficient Agentic RAG via Reinforcement Learning
+              </a>
+            </div>
+            <div class="pub-authors">
+              …, <strong>Xiaohan Wang</strong>, …
+            </div>
+            <div class="pub-venue">
+              <em>ACL 2026</em>
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2604.17337" class="pub-link" target="_blank">arXiv</a>
+            </div>
+          </li>
+
+          <!-- ICLR 2026 — ResT -->
+          <li class="pub-item">
+            <div class="pub-title">
+              <a href="https://arxiv.org/abs/2509.21826" target="_blank">
+                ResT: Reshaping Token-Level Policy Gradients for Tool-Use Large Language Models
+              </a>
+            </div>
+            <div class="pub-authors">
+              …, <strong>Xiaohan Wang*</strong>, …
+            </div>
+            <div class="pub-venue">
+              <em>ICLR 2026</em> · Co-First Author
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2509.21826" class="pub-link" target="_blank">arXiv</a>
+            </div>
+          </li>
+
+          <!-- ICLR 2026 — LogiConBench -->
+          <li class="pub-item">
+            <div class="pub-title">
+              LogiConBench: Benchmarking Logical Consistencies of LLMs
+            </div>
+            <div class="pub-authors">
+              …, <strong>Xiaohan Wang</strong>, …
+            </div>
+            <div class="pub-venue">
+              <em>ICLR 2026</em>
+            </div>
+          </li>
+
+          <!-- ICLR 2026 — MAD-Logic -->
+          <li class="pub-item">
+            <div class="pub-title">
+              MAD-Logic: Multi-Agent Debate Enhances Symbolic Translation and Reasoning
+            </div>
+            <div class="pub-authors">
+              …, <strong>Xiaohan Wang</strong>, …
+            </div>
+            <div class="pub-venue">
+              <em>ICLR 2026</em>
+            </div>
+          </li>
+
+          <!-- ICLR 2026 — SAE -->
+          <li class="pub-item">
+            <div class="pub-title">
+              <a href="https://arxiv.org/abs/2603.02908" target="_blank">
+                SAE as a Crystal Ball: Interpretable Features Predict Cross-domain Transferability of LLMs without Training
+              </a>
+            </div>
+            <div class="pub-authors">
+              …, <strong>Xiaohan Wang</strong>, …
+            </div>
+            <div class="pub-venue">
+              <em>ICLR 2026</em>
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2603.02908" class="pub-link" target="_blank">arXiv</a>
+            </div>
+          </li>
+
+          <!-- ICLR 2026 Workshop — MTIR-SQL -->
+          <li class="pub-item">
+            <div class="pub-title">
+              <a href="https://arxiv.org/abs/2510.25510" target="_blank">
+                MTIR-SQL: Multi-turn Tool-Integrated Reasoning Reinforcement Learning for Text-to-SQL
+              </a>
+            </div>
+            <div class="pub-authors">
+              …, <strong>Xiaohan Wang</strong>, …
+            </div>
+            <div class="pub-venue">
+              <em>ICLR 2026 Workshop</em>
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2510.25510" class="pub-link" target="_blank">arXiv</a>
+            </div>
+          </li>
 
         </ol>
 
         <p class="full-list-link">
-          → Full list on <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+          → Full list on <a href="https://scholar.google.com/citations?user=H0kocJUAAAAJ&hl=en" target="_blank">Google Scholar</a>
         </p>
       </section>
 
@@ -121,22 +292,31 @@
 
           <div class="timeline-item">
             <div class="timeline-left">
-              <span class="tl-year">20XX – 20XX</span>
+              <span class="tl-year">2019 – 2024</span>
             </div>
             <div class="timeline-right">
-              <strong>Ph.D. in [Field]</strong>
-              <span class="institution">[University Name]</span>
-              <span class="detail">Advisor: Prof. [Name] · Thesis: "[Thesis Title]"</span>
+              <strong>Ph.D. in Computer Science</strong>
+              <span class="institution">Beihang University (北京航空航天大学)</span>
             </div>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-left">
-              <span class="tl-year">20XX – 20XX</span>
+              <span class="tl-year">2023 – 2024</span>
             </div>
             <div class="timeline-right">
-              <strong>B.Eng. in [Field]</strong>
-              <span class="institution">[University Name]</span>
+              <strong>Joint PhD Training</strong>
+              <span class="institution">KTH Royal Institute of Technology, Stockholm</span>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-left">
+              <span class="tl-year">2015 – 2019</span>
+            </div>
+            <div class="timeline-right">
+              <strong>B.Eng. in Computer Science</strong>
+              <span class="institution">Beihang University (北京航空航天大学)</span>
             </div>
           </div>
 
@@ -150,37 +330,16 @@
 
           <div class="timeline-item">
             <div class="timeline-left">
-              <span class="tl-year">20XX – Present</span>
+              <span class="tl-year">2024 – Present</span>
             </div>
             <div class="timeline-right">
-              <strong>Research Scientist / Engineer</strong>
-              <span class="institution">[Company / Lab Name]</span>
-              <span class="detail">Working on [brief description].</span>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-left">
-              <span class="tl-year">20XX</span>
-            </div>
-            <div class="timeline-right">
-              <strong>Research Intern</strong>
-              <span class="institution">[Company / Lab Name]</span>
-              <span class="detail">Internship on [topic].</span>
+              <strong>LLM Algorithm Researcher</strong>
+              <span class="institution">Meituan (美团) · Beidou Program (北斗计划)</span>
+              <span class="detail">Research on LLM post-training, RLVR, and agentic AI systems.</span>
             </div>
           </div>
 
         </div>
-      </section>
-
-      <!-- ===== SERVICE ===== -->
-      <section id="service">
-        <h2>Academic Service</h2>
-        <ul class="service-list">
-          <li>Reviewer: [Conference / Journal Name], [Year]</li>
-          <li>PC Member: [Conference Name], [Year]</li>
-          <li>Teaching Assistant: [Course Name], [Institution], [Year]</li>
-        </ul>
       </section>
 
     </main>
