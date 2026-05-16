@@ -1,21 +1,22 @@
 /* =============================================
    Academic Personal Homepage — style.css
-   Clean, minimal, optimized for readability
+   Dark theme
    ============================================= */
 
 :root {
-  --text:        #1a1a1a;
-  --text-muted:  #555;
-  --text-light:  #888;
-  --accent:      #1a4fa8;        /* link / highlight color */
-  --accent-hover:#0d3070;
-  --bg:          #fafaf8;
-  --border:      #e4e4e0;
-  --tag-bg:      #eef2fb;
-  --tag-text:    #2255a0;
-  --chip-bg:     #f0f0ec;
-  --chip-hover:  #e0e0d8;
-  --pub-hover:   #f5f5f0;
+  --text:        #e8e8e2;
+  --text-muted:  #999;
+  --text-light:  #666;
+  --accent:      #6a9fe8;
+  --accent-hover:#90bbff;
+  --bg:          #0e0e0e;
+  --bg-section:  #161616;
+  --border:      #2a2a2a;
+  --tag-bg:      #1a2540;
+  --tag-text:    #7ab0f0;
+  --chip-bg:     #1e1e1e;
+  --chip-hover:  #2a2a2a;
+  --pub-hover:   #1a1a1a;
   --font-body:   'Inter', system-ui, -apple-system, sans-serif;
   --font-serif:  'Crimson Pro', Georgia, serif;
   --radius:      6px;
@@ -106,19 +107,6 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   margin-left: 6px;
 }
 
-.title {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  margin-bottom: 10px;
-}
-
-.bio {
-  font-size: 0.93rem;
-  color: var(--text);
-  max-width: 580px;
-  margin-bottom: 14px;
-}
-
 /* ---- Contact chips ---- */
 .contact-links {
   display: flex;
@@ -130,6 +118,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   display: inline-block;
   padding: 4px 12px;
   background: var(--chip-bg);
+  border: 1px solid var(--border);
   border-radius: 20px;
   font-size: 0.82rem;
   font-weight: 500;
@@ -160,46 +149,7 @@ section h2 {
   width: fit-content;
 }
 
-/* ---- News ---- */
-.news-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.news-list li {
-  font-size: 0.9rem;
-  display: flex;
-  gap: 14px;
-  align-items: baseline;
-}
-
-.date {
-  flex-shrink: 0;
-  min-width: 76px;
-  font-size: 0.8rem;
-  color: var(--text-light);
-  font-weight: 500;
-}
-
 /* ---- Research Interests ---- */
-.interest-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-
-.tag {
-  background: var(--tag-bg);
-  color: var(--tag-text);
-  padding: 4px 12px;
-  border-radius: 4px;
-  font-size: 0.83rem;
-  font-weight: 500;
-}
-
 .research-desc {
   font-size: 0.92rem;
   color: var(--text-muted);
@@ -210,65 +160,49 @@ section h2 {
 .section-note {
   font-size: 0.8rem;
   color: var(--text-light);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.venue-group {
+  margin-bottom: 28px;
+}
+
+.venue-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
 }
 
 .pub-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .pub-item {
-  padding: 14px 16px;
+  padding: 6px 14px 6px 26px;
   border-radius: var(--radius);
   border-left: 3px solid transparent;
+  font-size: 0.93rem;
+  color: var(--text);
+  position: relative;
   transition: background 0.15s, border-color 0.15s;
+}
+.pub-item::before {
+  content: '▸';
+  position: absolute;
+  left: 10px;
+  color: var(--accent);
+  font-size: 0.75rem;
+  top: 10px;
 }
 .pub-item:hover {
   background: var(--pub-hover);
   border-left-color: var(--accent);
-}
-
-.pub-title {
-  font-size: 0.95rem;
-  font-weight: 500;
-  margin-bottom: 3px;
-}
-.pub-title a { color: var(--text); }
-.pub-title a:hover { color: var(--accent); text-decoration: none; }
-
-.pub-authors {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 2px;
-}
-
-.pub-venue {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 6px;
-}
-
-.pub-links {
-  display: flex;
-  gap: 8px;
-}
-
-.pub-link {
-  font-size: 0.78rem;
-  font-weight: 500;
-  background: var(--chip-bg);
-  padding: 2px 10px;
-  border-radius: 3px;
-  color: var(--accent);
-  text-decoration: none;
-  transition: background 0.12s;
-}
-.pub-link:hover {
-  background: var(--chip-hover);
-  text-decoration: none;
 }
 
 .full-list-link {
@@ -276,11 +210,11 @@ section h2 {
   font-size: 0.88rem;
 }
 
-/* ---- Timeline (Education / Experience) ---- */
+/* ---- Timeline (Experience) ---- */
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .timeline-item {
@@ -317,31 +251,6 @@ section h2 {
   color: var(--text-muted);
 }
 
-.detail {
-  font-size: 0.85rem;
-  color: var(--text-light);
-}
-
-/* ---- Service ---- */
-.service-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.service-list li {
-  font-size: 0.9rem;
-  padding-left: 14px;
-  position: relative;
-}
-.service-list li::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  color: var(--text-light);
-}
-
 /* ---- Footer ---- */
 footer {
   margin-top: 64px;
@@ -373,8 +282,6 @@ footer {
   .timeline-left {
     width: auto;
   }
-
-  .bio { max-width: 100%; }
 
   .container { padding: 32px 18px 60px; }
 }
