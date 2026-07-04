@@ -1,0 +1,142 @@
+<style>
+  body { background: #0e0e0e; color: #e8e8e2; font-family: 'Inter', system-ui, sans-serif; }
+  h2 { margin-bottom: 6px; }
+  .subtitle { color: #999; margin-bottom: 28px; font-size: 0.9rem; }
+
+  .cards { display: flex; flex-direction: column; gap: 20px; }
+  .card {
+    background: #111; border: 1px solid #2a2a2a;
+    border-radius: 10px; padding: 18px 20px;
+    cursor: pointer; transition: border-color 0.2s;
+  }
+  .card:hover { border-color: #6a9fe8; }
+  .card.selected { border-color: #6a9fe8; background: #0e1a30; }
+  .card-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; color: #6a9fe8; margin-bottom: 12px;
+  }
+  .card-desc { font-size: 0.8rem; color: #777; margin-top: 12px; border-top: 1px solid #222; padding-top: 10px; }
+  .option-letter {
+    display: inline-block; width: 22px; height: 22px;
+    background: #2a2a2a; border-radius: 50%;
+    text-align: center; line-height: 22px;
+    font-size: 0.75rem; font-weight: 700; margin-right: 8px; color: #6a9fe8;
+  }
+
+  /* Mock CV section styles */
+  .cv-section { background: #141414; border: 1px solid #222; border-radius: 8px; padding: 18px 20px; }
+  .cv-h2 {
+    font-size: 1rem; font-weight: 600; letter-spacing: 0.4px;
+    text-transform: uppercase; color: #e8e8e2;
+    padding-bottom: 6px; border-bottom: 2px solid #6a9fe8;
+    margin-bottom: 14px; width: fit-content;
+  }
+
+  /* Option A: current dense paragraph */
+  .p-dense { font-size: 0.88rem; color: #999; line-height: 1.75; }
+  .p-dense strong { color: #c8c8c2; }
+
+  /* Option B: short bio + tag cloud */
+  .p-short { font-size: 0.88rem; color: #999; line-height: 1.7; margin-bottom: 14px; }
+  .p-short strong { color: #c8c8c2; }
+  .tag-section-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; color: #555; margin-bottom: 8px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    padding: 3px 10px; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 500;
+    background: #1a2540; color: #7ab0f0;
+    border: 1px solid #1e3060;
+  }
+  .tag.phd { background: #1a251a; color: #7ac07a; border-color: #1e4020; }
+
+  /* Option C: two-column bio + expertise */
+  .two-col { display: flex; gap: 20px; }
+  .two-col-main { flex: 1; }
+  .two-col-side { width: 180px; flex-shrink: 0; }
+  .expertise-block { background: #0f0f0f; border: 1px solid #222; border-radius: 6px; padding: 12px 14px; }
+  .expertise-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #6a9fe8; margin-bottom: 10px; }
+  .expertise-item { font-size: 0.78rem; color: #aaa; padding: 4px 0; border-bottom: 1px solid #1e1e1e; }
+  .expertise-item:last-child { border-bottom: none; }
+  .expertise-dot { color: #6a9fe8; margin-right: 6px; }
+</style>
+
+<h2>About Me 区块排版 — 选择信息呈现方式</h2>
+<p class="subtitle">当前是一段密集长文。以下三种方式改善可读性与信息层次。</p>
+
+<div class="cards">
+
+  <!-- Option A: current + minor split -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-label"><span class="option-letter">A</span> 保持长文段 — 仅拆分为两段</div>
+    <div class="cv-section">
+      <div class="cv-h2">About Me</div>
+      <p class="p-dense">
+        I am a researcher at <strong>Meituan</strong>, focusing on <strong>LLM post-training</strong>. My current work spans <strong>search agents</strong>, <strong>tool use</strong>, <strong>reasoning</strong>, and <strong>instruction following</strong>, with expertise across the full LLM pipeline — from <strong>RLVR</strong> and <strong>reward modeling</strong> to <strong>data synthesis</strong> and <strong>multi-task training</strong>.
+      </p>
+      <p class="p-dense" style="margin-top:10px">
+        Prior to this, I completed my Ph.D. at Beihang University, applying <strong>deep reinforcement learning</strong> to cloud scheduling — leveraging <strong>MDP modeling</strong>, <strong>Uplift modeling</strong>, and <strong>online/offline DRL</strong> to optimize decision flexibility and response time.
+      </p>
+    </div>
+    <div class="card-desc">✦ 最小改动。把一大段拆成「现在」和「博士」两段，结构稍微清晰一些。</div>
+  </div>
+
+  <!-- Option B: short bio + tag cloud -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-label"><span class="option-letter">B</span> 短段落 + Research Focus 标签云（推荐）</div>
+    <div class="cv-section">
+      <div class="cv-h2">About Me</div>
+      <p class="p-short">
+        Researcher at <strong>Meituan</strong> (北斗计划), working on <strong>LLM post-training</strong> — search agents, tool use, reasoning, and instruction following. PhD from Beihang University, with a background in deep reinforcement learning for cloud scheduling.
+      </p>
+      <div class="tag-section-label">Current Research Focus</div>
+      <div class="tags">
+        <span class="tag">Search Agent</span>
+        <span class="tag">Tool Use</span>
+        <span class="tag">Reasoning</span>
+        <span class="tag">Instruction Following</span>
+        <span class="tag">RLVR</span>
+        <span class="tag">Reward Modeling</span>
+        <span class="tag">Data Synthesis</span>
+        <span class="tag">Multi-task Training</span>
+      </div>
+      <div class="tag-section-label" style="margin-top:10px">PhD Background</div>
+      <div class="tags">
+        <span class="tag phd">Deep RL</span>
+        <span class="tag phd">MDP Modeling</span>
+        <span class="tag phd">Uplift Modeling</span>
+        <span class="tag phd">Cloud Scheduling</span>
+      </div>
+    </div>
+    <div class="card-desc">✦ 简短的 2-3 句话 + 分组标签云。访客可以快速扫描关键词，更适合招聘/学术双场景。</div>
+  </div>
+
+  <!-- Option C: two-column with expertise sidebar -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-label"><span class="option-letter">C</span> 正文 + 侧边 Expertise 列表</div>
+    <div class="cv-section">
+      <div class="cv-h2">About Me</div>
+      <div class="two-col">
+        <div class="two-col-main">
+          <p class="p-short">
+            Researcher at <strong>Meituan</strong> (北斗计划), specializing in <strong>LLM post-training techniques</strong>. My work covers the full pipeline — training, inference, and evaluation — with a focus on building capable and aligned language models.
+          </p>
+          <p class="p-short">
+            PhD from Beihang University, where I applied <strong>deep reinforcement learning</strong> to cloud scheduling using MDP modeling and Uplift modeling.
+          </p>
+        </div>
+        <div class="two-col-side">
+          <div class="expertise-block">
+            <div class="expertise-title">Key Expertise</div>
+            <div class="expertise-item"><span class="expertise-dot">▸</span>RLVR / Reward Modeling</div>
+            <div class="expertise-item"><span class="expertise-dot">▸</span>Search Agent</div>
+            <div class="expertise-item"><span class="expertise-dot">▸</span>Tool Use</div>
+            <div class="expertise-item"><span class="expertise-dot">▸</span>Data Synthesis</div>
+            <div class="expertise-item"><span class="expertise-dot">▸</span>Deep RL (PhD)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-desc">✦ 双栏布局：左边叙述，右边快速索引。视觉更丰富，但稍微复杂。</div>
+  </div>
+
+</div>

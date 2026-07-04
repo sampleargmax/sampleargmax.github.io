@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xiaohan Wang | Researcher</title>
-  <link rel="stylesheet" href="style.css?v=2" />
+  <title>Xiaohan Wang | Engineer</title>
+  <link rel="stylesheet" href="style.css?v=5" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
 </head>
 <body>
+
+  <!-- ===== THEME TOGGLE ===== -->
+  <button class="theme-toggle" id="theme-toggle" title="Switch to dark mode" aria-label="Toggle dark mode">🌙</button>
+
   <div class="container">
 
     <!-- ===== HEADER / PROFILE ===== -->
@@ -20,6 +24,13 @@
       </div>
       <div class="profile-info">
         <h1>Xiaohan Wang <span class="name-cn">王霄汉</span></h1>
+        <div class="profile-position">LLM Post-Training Engineer &nbsp;·&nbsp; Meituan 美团北斗计划</div>
+        <div class="header-links">
+          <span class="link-chip email">✉ xiaohanwang [at] buaa.edu.cn</span>
+          <a href="https://scholar.google.com/citations?user=H0kocJUAAAAJ&hl=en" class="link-chip" target="_blank">Google Scholar</a>
+          <a href="https://www.linkedin.com/in/xiaohan-wang-189734288/" class="link-chip" target="_blank">LinkedIn</a>
+          <a href="https://www.zhihu.com/people/dian-nao-shi-shi-yao" class="link-chip" target="_blank">ZhiHu</a>
+        </div>
       </div>
     </header>
 
@@ -33,7 +44,7 @@
           <div class="timeline-item">
             <div class="timeline-left"><span class="tl-year">2024 – Present</span></div>
             <div class="timeline-right">
-              <strong><em>LLM Post-Training Researcher</em></strong>
+              <strong><em>LLM Post-Training Engineer</em></strong>
               <span class="institution">Meituan 美团北斗计划</span>
             </div>
           </div>
@@ -65,12 +76,24 @@
         </div>
       </section>
 
-      <!-- ===== RESEARCH INTERESTS ===== -->
+      <!-- ===== ABOUT ME ===== -->
       <section id="research">
         <h2>About Me</h2>
         <p class="research-desc">
-          Currently, my research focuses on <strong><em>LLM post-training techniques and algorithms</em></strong>, with a specific emphasis on <strong><em>search agent</em></strong>, <strong><em>tool use</em></strong>, <strong><em>reasoning</em></strong>, and <strong><em>instruction following</em></strong>. My expertise spans the full LLM pipeline—from training and inference to evaluation—covering key areas such as <strong><em>RLVR</em></strong>, <strong><em>reward modeling</em></strong>, <strong><em>data synthesis</em></strong>, and <strong><em>multi-task training</em></strong>. Prior to this, I completed my Ph.D. with a focus on applying <strong><em>deep reinforcement learning (DRL)</em></strong> to cloud environment scheduling challenges. My doctoral work aimed at utilizing neural network generalization for decision-making to optimize solution flexibility and reduce response times, drawing extensively on <strong><em>MDP modeling</em></strong>, <strong><em>Uplift modeling</em></strong>, and <strong><em>online/offline DRL</em></strong>.
+          Currently, my research focuses on <strong>LLM post-training techniques and algorithms</strong>, with a specific emphasis on <strong>search agent</strong>, <strong>tool use</strong>, <strong>reasoning</strong>, and <strong>instruction following</strong>. My expertise spans the full LLM pipeline—from training and inference to evaluation—covering key areas such as <strong>RLVR</strong>, <strong>reward modeling</strong>, <strong>data synthesis</strong>, and <strong>multi-domain training</strong>. I have extensive hands-on experience with <strong>large-scale GPU clusters (~15M GPU hours)</strong> and end-to-end training of <strong>multiple 100B+ parameter foundation models</strong>. Prior to this, I completed my Ph.D. with a focus on applying <strong>deep reinforcement learning (DRL)</strong> to cloud environment scheduling challenges. My doctoral work aimed at utilizing neural network generalization for decision-making to optimize solution flexibility and reduce response times, drawing extensively on <strong>MDP modeling</strong>, <strong>uplift modeling</strong>, and <strong>online/offline DRL</strong>.
         </p>
+        <div class="tag-section-label">Key Expertises</div>
+        <div class="tags">
+          <span class="tag">RLVR</span>
+          <span class="tag">Reward Modeling</span>
+          <span class="tag">Agentic RL</span>
+          <span class="tag">Data Synthesis</span>
+          <span class="tag">Multi-domain Training</span>
+          <span class="tag">Search Agent</span>
+          <span class="tag">Tool Use</span>
+          <span class="tag">Reasoning</span>
+          <span class="tag">Instruction Following</span>
+        </div>
       </section>
 
       <!-- ===== PUBLICATIONS ===== -->
@@ -82,7 +105,8 @@
           <ul class="pub-list">
             <li class="pub-item">
               CDRRM: Contrast-Driven Rubric Generation for Reliable and Interpretable Reward Modeling
-              (<a href="https://openreview.net/forum?id=OTBzVLBJPb#discussion" target="_blank">Link</a>, Corresponding Author)
+              (<a href="https://openreview.net/forum?id=OTBzVLBJPb#discussion" target="_blank">Link</a>)
+              <span class="badge badge-cor">Corresponding</span>
             </li>
             <li class="pub-item">
               LocalSearchBench: Benchmarking Agentic Search in Real-World Local Life Services
@@ -95,20 +119,18 @@
           <h3 class="venue-label">ICML 2026</h3>
           <ul class="pub-list">
             <li class="pub-item">
+              ResRL: Boosting LLM Reasoning via Negative Sample Projection Residual Reinforcement Learning
+              (<a href="https://arxiv.org/abs/2605.00380" target="_blank">Link</a>)
+              <span class="badge badge-co">Co-First</span>
+              <span class="badge badge-cor">Corresponding</span>
+            </li>
+            <li class="pub-item">
               Contextual Rollout Bandits for Reinforcement Learning with Verifiable Rewards
               (<a href="https://arxiv.org/abs/2602.08499" target="_blank">Link</a>)
             </li>
             <li class="pub-item">
-              ResRL: Boosting LLM Reasoning via Negative Sample Projection Residual Reinforcement Learning
-              (<a href="https://arxiv.org/abs/2605.00380" target="_blank">Link</a>, Co-First Author, Corresponding Author)
-            </li>
-            <li class="pub-item">
               SSL4RL: Revisiting Self-supervised Learning as Intrinsic Reward for Visual-Language Reasoning
               (<a href="https://arxiv.org/abs/2510.16416" target="_blank">Link</a>)
-            </li>
-            <li class="pub-item">
-              Rethinking Personalization in Large Language Models at the Token Level
-              (<a href="https://arxiv.org/abs/2603.06595" target="_blank">Link</a>)
             </li>
             <li class="pub-item">
               GRASP: Graph Reasoning via Agentic Solving and Probing of LLMs
@@ -131,7 +153,8 @@
           <ul class="pub-list">
             <li class="pub-item">
               ResT: Reshaping Token-Level Policy Gradients for Tool-Use Large Language Models
-              (<a href="https://arxiv.org/abs/2509.21826" target="_blank">Link</a>, Co-First Author)
+              (<a href="https://arxiv.org/abs/2509.21826" target="_blank">Link</a>)
+              <span class="badge badge-co">Co-First</span>
             </li>
             <li class="pub-item">
               LogiConBench: Benchmarking Logical Consistencies of LLMs
@@ -161,22 +184,46 @@
         </p>
       </section>
 
-      <!-- ===== LINKS ===== -->
-      <section id="links">
-        <h2>Links</h2>
-        <div class="contact-links">
-          <a href="https://scholar.google.com/citations?user=H0kocJUAAAAJ&hl=en" class="link-chip" target="_blank">Google Scholar</a>
-          <a href="https://www.linkedin.com/in/xiaohan-wang-189734288/" class="link-chip" target="_blank">LinkedIn</a>
-          <a href="https://www.zhihu.com/people/dian-nao-shi-shi-yao" class="link-chip" target="_blank">ZhiHu</a>
-        </div>
-      </section>
-
     </main>
 
     <footer>
-      <p>Last updated: June 2026 &nbsp;·&nbsp; Built with plain HTML/CSS</p>
+      <p>Last updated: July 2026 &nbsp;·&nbsp; Built with plain HTML/CSS</p>
     </footer>
 
   </div>
+
+  <!-- ===== THEME TOGGLE SCRIPT ===== -->
+  <script>
+    (function () {
+      var btn = document.getElementById('theme-toggle');
+      var html = document.documentElement;
+
+      // Apply saved preference immediately (avoids flash)
+      var saved = localStorage.getItem('theme') || 'light';
+      html.setAttribute('data-theme', saved);
+      updateBtn(saved);
+
+      btn.addEventListener('click', function () {
+        var current = html.getAttribute('data-theme') || 'light';
+        var next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateBtn(next);
+      });
+
+      function updateBtn(theme) {
+        if (theme === 'dark') {
+          btn.textContent = '☀️';
+          btn.title = 'Switch to light mode';
+          btn.setAttribute('aria-label', 'Switch to light mode');
+        } else {
+          btn.textContent = '🌙';
+          btn.title = 'Switch to dark mode';
+          btn.setAttribute('aria-label', 'Switch to dark mode');
+        }
+      }
+    })();
+  </script>
+
 </body>
 </html>

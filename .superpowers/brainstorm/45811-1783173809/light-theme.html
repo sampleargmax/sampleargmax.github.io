@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Light Theme Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Shared layout ── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #eee; padding: 24px 16px 48px; }
+
+    h2.page-title { text-align: center; font-size: 1rem; font-weight: 600; color: #444; margin-bottom: 6px; }
+    p.page-sub { text-align: center; font-size: 0.8rem; color: #888; margin-bottom: 28px; }
+
+    .options-row {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Each option is a mini CV card */
+    .opt-card {
+      background: #fff;
+      border: 2px solid #ddd;
+      border-radius: 12px;
+      width: 340px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      flex-shrink: 0;
+    }
+    .opt-card:hover { border-color: #2563eb; box-shadow: 0 4px 20px rgba(37,99,235,0.12); }
+    .opt-card.selected { border-color: #2563eb; box-shadow: 0 4px 20px rgba(37,99,235,0.18); }
+
+    .opt-label {
+      padding: 8px 14px;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; color: #2563eb;
+      border-bottom: 1px solid #f0f0f0;
+      background: #f8faff;
+    }
+
+    /* ── Mini CV styles (light) ── */
+    .cv {
+      padding: 16px 18px;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .cv-header { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
+    .cv-avatar {
+      width: 54px; height: 54px; border-radius: 50%; flex-shrink: 0;
+      overflow: hidden; border: 2px solid #e0e0e0;
+    }
+    .cv-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cv-name { font-size: 1.05rem; font-weight: 600; line-height: 1.2; }
+    .cv-name-cn { font-family: 'Crimson Pro', Georgia, serif; font-size: 0.88rem; color: #888; margin-left: 5px; }
+    .cv-pos { font-size: 0.72rem; color: #2563eb; font-weight: 500; margin-top: 4px; }
+    .cv-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+    .cv-chip {
+      padding: 2px 8px; border-radius: 20px;
+      font-size: 0.62rem; font-weight: 500;
+      background: #f0f4ff; border: 1px solid #dce4ff; color: #3b5bdb;
+    }
+    .cv-chip.email { background: #f0f7ff; border-color: #bdd7ff; color: #1d4ed8; }
+
+    /* Section */
+    .cv-section { margin-bottom: 12px; }
+    .cv-h2 {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5px;
+      text-transform: uppercase; color: #1a1a1a;
+      padding-bottom: 4px; border-bottom: 2px solid #2563eb;
+      margin-bottom: 8px; width: fit-content;
+    }
+
+    /* Pub items */
+    .cv-pub {
+      padding: 4px 10px 4px 18px; border-radius: 4px;
+      border-left: 2px solid transparent; font-size: 0.72rem; color: #333;
+      position: relative; margin-bottom: 3px;
+    }
+    .cv-pub::before { content:'▸'; position:absolute; left:6px; top:6px; font-size:0.6rem; color:#2563eb; }
+    .cv-pub:hover { background: #f5f7ff; border-left-color: #2563eb; }
+
+    /* Badge variants */
+
+    /* A: purple + orange */
+    .a-co  { display:inline-block; padding:1px 5px; border-radius:8px; font-size:0.6rem; font-weight:700; margin-left:4px; vertical-align:middle; line-height:1.6; background:#ede9fe; color:#5b21b6; border:1px solid #c4b5fd; }
+    .a-cor { display:inline-block; padding:1px 5px; border-radius:8px; font-size:0.6rem; font-weight:700; margin-left:4px; vertical-align:middle; line-height:1.6; background:#fff7ed; color:#c2410c; border:1px solid #fed7aa; }
+
+    /* B: teal + rose */
+    .b-co  { display:inline-block; padding:1px 5px; border-radius:8px; font-size:0.6rem; font-weight:700; margin-left:4px; vertical-align:middle; line-height:1.6; background:#f0fdfa; color:#0f766e; border:1px solid #99f6e4; }
+    .b-cor { display:inline-block; padding:1px 5px; border-radius:8px; font-size:0.6rem; font-weight:700; margin-left:4px; vertical-align:middle; line-height:1.6; background:#fff1f2; color:#be123c; border:1px solid #fecdd3; }
+
+    /* C: blue + green */
+    .c-co  { display:inline-block; padding:1px 5px; border-radius:8px; font-size:0.6rem; font-weight:700; margin-left:4px; vertical-align:middle; line-height:1.6; background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe; }
+    .c-cor { display:inline-block; padding:1px 5px; border-radius:8px; font-size:0.6rem; font-weight:700; margin-left:4px; vertical-align:middle; line-height:1.6; background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; }
+
+    /* Tags */
+    .cv-tags { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:8px; }
+    .cv-tag { padding:2px 7px; border-radius:3px; font-size:0.62rem; font-weight:500; background:#eef2ff; color:#3730a3; border:1px solid #c7d2fe; }
+    .cv-tag.phd { background:#f0fdf4; color:#166534; border-color:#bbf7d0; }
+
+    /* Choice indicator */
+    .choice-bar {
+      padding: 8px 14px;
+      font-size: 0.7rem; color: #666;
+      border-top: 1px solid #f0f0f0;
+      text-align: center;
+    }
+    .opt-card.selected .choice-bar { color: #2563eb; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<h2 class="page-title">浅色主题 × Badge 配色 — 选一个</h2>
+<p class="page-sub">三种 badge 配色，背景均为浅色。点击选择你喜欢的。</p>
+
+<div class="options-row">
+
+  <!-- Option A: purple + orange -->
+  <div class="opt-card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="opt-label">A &nbsp;·&nbsp; 共一紫色 / 通信橙色</div>
+    <div class="cv">
+      <div class="cv-header">
+        <div class="cv-avatar"><img src="photo.jpeg" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a4fa8,#4b7bec)'" /></div>
+        <div>
+          <div class="cv-name">Xiaohan Wang <span class="cv-name-cn">王霄汉</span></div>
+          <div class="cv-pos">LLM Post-Training Researcher · Meituan</div>
+          <div class="cv-chips">
+            <span class="cv-chip email">✉ xiaohanwang [at] buaa.edu.cn</span>
+            <span class="cv-chip">Google Scholar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-h2">About Me</div>
+        <div class="cv-tags">
+          <span class="cv-tag">Search Agent</span><span class="cv-tag">Tool Use</span>
+          <span class="cv-tag">RLVR</span><span class="cv-tag">Reasoning</span>
+          <span class="cv-tag phd">Deep RL</span><span class="cv-tag phd">MDP</span>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-h2">Publications</div>
+        <div class="cv-pub">
+          ResRL: Boosting LLM Reasoning...
+          <span class="a-co">Co-First</span><span class="a-cor">Corresponding</span>
+        </div>
+        <div class="cv-pub">
+          ResT: Reshaping Token-Level Policy Gradients...
+          <span class="a-co">Co-First</span>
+        </div>
+        <div class="cv-pub">CDRRM: Contrast-Driven Rubric... <span class="a-cor">Corresponding</span></div>
+      </div>
+    </div>
+    <div class="choice-bar">点击选择 A</div>
+  </div>
+
+  <!-- Option B: teal + rose -->
+  <div class="opt-card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="opt-label">B &nbsp;·&nbsp; 共一青绿 / 通信玫红</div>
+    <div class="cv">
+      <div class="cv-header">
+        <div class="cv-avatar"><img src="photo.jpeg" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a4fa8,#4b7bec)'" /></div>
+        <div>
+          <div class="cv-name">Xiaohan Wang <span class="cv-name-cn">王霄汉</span></div>
+          <div class="cv-pos">LLM Post-Training Researcher · Meituan</div>
+          <div class="cv-chips">
+            <span class="cv-chip email">✉ xiaohanwang [at] buaa.edu.cn</span>
+            <span class="cv-chip">Google Scholar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-h2">About Me</div>
+        <div class="cv-tags">
+          <span class="cv-tag">Search Agent</span><span class="cv-tag">Tool Use</span>
+          <span class="cv-tag">RLVR</span><span class="cv-tag">Reasoning</span>
+          <span class="cv-tag phd">Deep RL</span><span class="cv-tag phd">MDP</span>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-h2">Publications</div>
+        <div class="cv-pub">
+          ResRL: Boosting LLM Reasoning...
+          <span class="b-co">Co-First</span><span class="b-cor">Corresponding</span>
+        </div>
+        <div class="cv-pub">
+          ResT: Reshaping Token-Level Policy Gradients...
+          <span class="b-co">Co-First</span>
+        </div>
+        <div class="cv-pub">CDRRM: Contrast-Driven Rubric... <span class="b-cor">Corresponding</span></div>
+      </div>
+    </div>
+    <div class="choice-bar">点击选择 B</div>
+  </div>
+
+  <!-- Option C: blue + green -->
+  <div class="opt-card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="opt-label">C &nbsp;·&nbsp; 共一蓝色 / 通信绿色</div>
+    <div class="cv">
+      <div class="cv-header">
+        <div class="cv-avatar"><img src="photo.jpeg" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a4fa8,#4b7bec)'" /></div>
+        <div>
+          <div class="cv-name">Xiaohan Wang <span class="cv-name-cn">王霄汉</span></div>
+          <div class="cv-pos">LLM Post-Training Researcher · Meituan</div>
+          <div class="cv-chips">
+            <span class="cv-chip email">✉ xiaohanwang [at] buaa.edu.cn</span>
+            <span class="cv-chip">Google Scholar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-h2">About Me</div>
+        <div class="cv-tags">
+          <span class="cv-tag">Search Agent</span><span class="cv-tag">Tool Use</span>
+          <span class="cv-tag">RLVR</span><span class="cv-tag">Reasoning</span>
+          <span class="cv-tag phd">Deep RL</span><span class="cv-tag phd">MDP</span>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-h2">Publications</div>
+        <div class="cv-pub">
+          ResRL: Boosting LLM Reasoning...
+          <span class="c-co">Co-First</span><span class="c-cor">Corresponding</span>
+        </div>
+        <div class="cv-pub">
+          ResT: Reshaping Token-Level Policy Gradients...
+          <span class="c-co">Co-First</span>
+        </div>
+        <div class="cv-pub">CDRRM: Contrast-Driven Rubric... <span class="c-cor">Corresponding</span></div>
+      </div>
+    </div>
+    <div class="choice-bar">点击选择 C</div>
+  </div>
+
+</div>
+
+<script>
+// inject toggleSelect since this is a full doc (not a snippet)
+function toggleSelect(el) {
+  document.querySelectorAll('.opt-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  // record event
+  fetch('/__event', {method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({type:'click', choice: el.dataset.choice, text: el.querySelector('.opt-label').textContent})
+  }).catch(()=>{});
+}
+</script>
+</body>
+</html>

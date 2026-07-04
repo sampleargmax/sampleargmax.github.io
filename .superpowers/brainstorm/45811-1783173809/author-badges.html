@@ -1,0 +1,159 @@
+<style>
+  body { background: #0e0e0e; color: #e8e8e2; font-family: 'Inter', system-ui, sans-serif; }
+  h2 { margin-bottom: 6px; }
+  .subtitle { color: #999; margin-bottom: 32px; font-size: 0.9rem; }
+
+  /* Reuse CV styles */
+  .pub-item-demo {
+    padding: 8px 14px 8px 26px;
+    border-radius: 6px;
+    border-left: 3px solid transparent;
+    font-size: 0.93rem;
+    color: #e8e8e2;
+    position: relative;
+    margin-bottom: 6px;
+    background: #161616;
+  }
+  .pub-item-demo::before {
+    content: '▸';
+    position: absolute;
+    left: 10px;
+    color: #6a9fe8;
+    font-size: 0.75rem;
+    top: 12px;
+  }
+
+  /* Option A — Superscript symbols */
+  .sup-co { color: #f0a500; font-size: 0.7rem; vertical-align: super; font-weight: 700; }
+  .sup-cor { color: #e87a6a; font-size: 0.7rem; vertical-align: super; font-weight: 700; }
+  .legend-a { font-size: 0.75rem; color: #999; margin-top: 8px; padding-left: 26px; }
+  .legend-a span { margin-right: 14px; }
+
+  /* Option B — Pill badges */
+  .badge {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 10px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.3px;
+    line-height: 1.6;
+  }
+  .badge-co { background: #2a2000; color: #f0c060; border: 1px solid #5a4010; }
+  .badge-cor { background: #2a1010; color: #f08080; border: 1px solid #5a2020; }
+
+  /* Option C — Icon inline */
+  .icon-co { display: inline-block; font-size: 0.78rem; color: #8be0a0; margin-left: 5px; font-weight: 700; title: "Co-First Author"; cursor: default; }
+  .icon-cor { display: inline-block; font-size: 0.78rem; color: #6ab0f0; margin-left: 4px; cursor: default; }
+  .legend-c { font-size: 0.75rem; color: #999; margin-top: 8px; padding-left: 26px; }
+
+  /* Cards layout */
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .card {
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: #6a9fe8; }
+  .card.selected { border-color: #6a9fe8; background: #0e1a30; }
+  .card-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #6a9fe8;
+    margin-bottom: 10px;
+  }
+  .card-desc {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 8px;
+  }
+  .option-letter {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background: #2a2a2a;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-right: 8px;
+    color: #6a9fe8;
+  }
+</style>
+
+<h2>作者角色标识 — 哪种风格最清晰？</h2>
+<p class="subtitle">以下三种方案均能区分「共同一作」与「通信作者」，请选择你喜欢的风格方向。</p>
+
+<div class="cards">
+
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-label"><span class="option-letter">A</span> 上标符号 + 图例（学术惯例）</div>
+    <div class="pub-item-demo">
+      ResRL: Boosting LLM Reasoning via Negative Sample Projection Residual Reinforcement Learning
+      (<a href="#" onclick="return false" style="color:#6a9fe8">Link</a>)
+      <span class="sup-co">*</span><span class="sup-cor">†</span>
+    </div>
+    <div class="pub-item-demo">
+      ResT: Reshaping Token-Level Policy Gradients for Tool-Use Large Language Models
+      (<a href="#" onclick="return false" style="color:#6a9fe8">Link</a>)
+      <span class="sup-co">*</span>
+    </div>
+    <div class="legend-a">
+      <span><span class="sup-co">*</span> Co-First Author</span>
+      <span><span class="sup-cor">†</span> Corresponding Author</span>
+    </div>
+    <div class="card-desc">✦ 最符合学术规范，干净紧凑，不打断阅读节奏</div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-label"><span class="option-letter">B</span> 彩色 Pill 标签（现代感）</div>
+    <div class="pub-item-demo">
+      ResRL: Boosting LLM Reasoning via Negative Sample Projection Residual Reinforcement Learning
+      (<a href="#" onclick="return false" style="color:#6a9fe8">Link</a>)
+      <span class="badge badge-co">Co-First</span>
+      <span class="badge badge-cor">Corresponding</span>
+    </div>
+    <div class="pub-item-demo">
+      ResT: Reshaping Token-Level Policy Gradients for Tool-Use Large Language Models
+      (<a href="#" onclick="return false" style="color:#6a9fe8">Link</a>)
+      <span class="badge badge-co">Co-First</span>
+    </div>
+    <div class="card-desc">✦ 颜色区分明显，一眼就能看到，适合非学术场合（招聘等）</div>
+  </div>
+
+  <!-- Option C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-label"><span class="option-letter">C</span> 图标符号（紧凑图示）</div>
+    <div class="pub-item-demo">
+      ResRL: Boosting LLM Reasoning via Negative Sample Projection Residual Reinforcement Learning
+      (<a href="#" onclick="return false" style="color:#6a9fe8">Link</a>)
+      <span class="icon-co" title="Co-First Author">⚑</span>
+      <span class="icon-cor" title="Corresponding Author">✉</span>
+    </div>
+    <div class="pub-item-demo">
+      ResT: Reshaping Token-Level Policy Gradients for Tool-Use Large Language Models
+      (<a href="#" onclick="return false" style="color:#6a9fe8">Link</a>)
+      <span class="icon-co" title="Co-First Author">⚑</span>
+    </div>
+    <div class="legend-c">
+      <span style="color:#8be0a0">⚑</span> Co-First Author &nbsp;&nbsp;
+      <span style="color:#6ab0f0">✉</span> Corresponding Author
+    </div>
+    <div class="card-desc">✦ 最紧凑，图标语义直观，鼠标悬停可显示 tooltip</div>
+  </div>
+
+</div>
